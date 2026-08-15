@@ -1,1071 +1,673 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Bhuvanesh N. | Manufacturing Engineer</title>
-    <meta name="description"
-          content="Professional portfolio of Bhuvanesh N., Manufacturing Engineering student at Anna University CEG Campus.">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            --bg: #06070a;
-            --bg2: #0b0d12;
-            --card: rgba(255,255,255,0.045);
-            --border: rgba(255,255,255,0.10);
-            --text: #f5f7fb;
-            --muted: #9ca3af;
-            --accent: #00e5ff;
-            --accent2: #7c3aed;
-            --success: #22c55e;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: "Inter", sans-serif;
-            background:
-                radial-gradient(circle at 80% 10%, rgba(0,229,255,0.10), transparent 25%),
-                radial-gradient(circle at 10% 30%, rgba(124,58,237,0.08), transparent 25%),
-                var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .container {
-            width: min(1120px, 90%);
-            margin: auto;
-        }
-
-        /* NAVBAR */
-
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(6,7,10,0.75);
-            backdrop-filter: blur(18px);
-            border-bottom: 1px solid rgba(255,255,255,0.06);
-        }
-
-        .nav-inner {
-            height: 72px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo {
-            font-family: "Space Grotesk", sans-serif;
-            font-size: 1.35rem;
-            font-weight: 700;
-        }
-
-        .logo span {
-            color: var(--accent);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: #c7cbd4;
-            font-size: 0.9rem;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-
-        .menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.7rem;
-            cursor: pointer;
-        }
-
-        /* HERO */
-
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding-top: 300px;
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 300px;
-            align-items: center;
-        }
-
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 14px;
-            border: 1px solid rgba(0,229,255,0.25);
-            background: rgba(0,229,255,0.05);
-            border-radius: 50px;
-            color: var(--accent);
-            font-size: 0.8rem;
-            margin-bottom: 22px;
-        }
-
-        .dot {
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: var(--success);
-            box-shadow: 0 0 10px var(--success);
-        }
-
-        h1 {
-            font-family: "Space Grotesk", sans-serif;
-            font-size: clamp(3rem, 7vw, 5.8rem);
-            line-height: 0.98;
-            letter-spacing: -4px;
-            margin-bottom: 25px;
-        }
-
-        h1 span {
-            color: var(--accent);
-        }
-
-        .hero p {
-            color: var(--muted);
-            max-width: 650px;
-            font-size: 1.05rem;
-            margin-bottom: 32px;
-        }
-
-        .buttons {
-            display: flex;
-            gap: 14px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 13px 22px;
-            border-radius: 9px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: 0.3s;
-            border: 1px solid var(--border);
-        }
-
-        .btn-primary {
-            background: var(--accent);
-            color: #001014;
-            border-color: var(--accent);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 35px rgba(0,229,255,0.25);
-        }
-
-        .btn-outline:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-
-        /* HERO CARD */
-
-        .hero-card {
-            position: relative;
-            height: 650px;
-            border: 1px solid var(--border);
-            border-radius: 25px;
-            background:
-                linear-gradient(145deg, rgba(0,229,255,0.08), rgba(124,58,237,0.07)),
-                var(--card);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .hero-card::before {
-            content: "";
-            position: absolute;
-            width: 650px;
-            height: 260px;
-            border-radius: 50%;
-            background: var(--accent);
-            filter: blur(100px);
-            opacity: 0.12;
-        }
-
-        .engineering-symbol {
-            position: relative;
-            width: 210px;
-            height: 210px;
-            border: 2px solid rgba(0,229,255,0.4);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: rotate 20s linear infinite;
-        }
-
-        .engineering-symbol::before,
-        .engineering-symbol::after {
-            content: "";
-            position: absolute;
-            border: 1px solid rgba(0,229,255,0.3);
-            border-radius: 50%;
-        }
-
-        .engineering-symbol::before {
-            width: 150px;
-            height: 150px;
-        }
-
-        .engineering-symbol::after {
-            width: 90px;
-            height: 90px;
-        }
-
-        .gear {
-            font-size: 5rem;
-            animation: counterRotate 20s linear infinite;
-        }
-
-        @keyframes rotate {
-            to { transform: rotate(360deg); }
-        }
-
-        @keyframes counterRotate {
-            to { transform: rotate(-360deg); }
-        }
-
-        /* SECTIONS */
-
-        section {
-            padding: 110px 0;
-        }
-
-        .section-heading {
-            margin-bottom: 55px;
-        }
-
-        .section-label {
-            color: var(--accent);
-            font-size: 0.78rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-        }
-
-        h2 {
-            font-family: "Space Grotesk", sans-serif;
-            font-size: clamp(2rem, 4vw, 3.2rem);
-            letter-spacing: -1.5px;
-        }
-
-        .section-description {
-            color: var(--muted);
-            max-width: 650px;
-            margin-top: 12px;
-        }
-
-        /* ABOUT */
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-        }
-
-        .about-card {
-            padding: 30px;
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 18px;
-        }
-
-        .about-card h3 {
-            margin-bottom: 15px;
-            font-family: "Space Grotesk";
-        }
-
-        .about-card p {
-            color: var(--muted);
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(2,1fr);
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .stat {
-            padding: 20px;
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            background: rgba(255,255,255,0.025);
-        }
-
-        .stat strong {
-            display: block;
-            font-size: 1.4rem;
-            color: var(--accent);
-        }
-
-        .stat span {
-            color: var(--muted);
-            font-size: 0.8rem;
-        }
-
-        /* SKILLS */
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 18px;
-        }
-
-        .skill {
-            padding: 24px;
-            border: 1px solid var(--border);
-            background: var(--card);
-            border-radius: 16px;
-            transition: 0.3s;
-        }
-
-        .skill:hover {
-            transform: translateY(-5px);
-            border-color: rgba(0,229,255,0.4);
-        }
-
-        .skill-icon {
-            font-size: 1.7rem;
-            margin-bottom: 15px;
-        }
-
-        .skill h3 {
-            font-size: 1rem;
-            margin-bottom: 7px;
-        }
-
-        .skill p {
-            color: var(--muted);
-            font-size: 0.85rem;
-        }
-
-        /* PROJECTS */
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(2,1fr);
-            gap: 22px;
-        }
-
-        .project {
-            position: relative;
-            padding: 30px;
-            min-height: 280px;
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            background:
-                linear-gradient(145deg, rgba(255,255,255,0.05), transparent),
-                var(--card);
-            transition: 0.35s;
-        }
-
-        .project:hover {
-            transform: translateY(-7px);
-            border-color: rgba(0,229,255,0.4);
-        }
-
-        .project-number {
-            color: var(--accent);
-            font-family: monospace;
-            font-size: 0.8rem;
-        }
-
-        .project h3 {
-            font-family: "Space Grotesk";
-            font-size: 1.4rem;
-            margin: 18px 0 12px;
-        }
-
-        .project p {
-            color: var(--muted);
-            font-size: 0.9rem;
-        }
-
-        .tags {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-
-        .tag {
-            padding: 5px 9px;
-            border-radius: 5px;
-            background: rgba(0,229,255,0.07);
-            color: #a8f5ff;
-            font-size: 0.7rem;
-        }
-
-        /* INTERNSHIP */
-
-        .timeline {
-            position: relative;
-            max-width: 850px;
-            margin: auto;
-        }
-
-        .timeline::before {
-            content: "";
-            position: absolute;
-            left: 14px;
-            top: 0;
-            bottom: 0;
-            width: 1px;
-            background: rgba(255,255,255,0.12);
-        }
-
-        .timeline-item {
-            position: relative;
-            padding-left: 55px;
-            margin-bottom: 45px;
-        }
-
-        .timeline-dot {
-            position: absolute;
-            left: 7px;
-            top: 5px;
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            background: var(--accent);
-            box-shadow: 0 0 20px rgba(0,229,255,0.6);
-        }
-
-        .timeline-card {
-            padding: 30px;
-            border: 1px solid var(--border);
-            border-radius: 18px;
-            background: var(--card);
-        }
-
-        .timeline-card h3 {
-            font-family: "Space Grotesk";
-            margin-bottom: 5px;
-        }
-
-        .timeline-card .company {
-            color: var(--accent);
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-        }
-
-        .timeline-card p,
-        .timeline-card li {
-            color: var(--muted);
-            font-size: 0.9rem;
-        }
-
-        .timeline-card ul {
-            padding-left: 20px;
-            margin-top: 12px;
-        }
-
-        /* CONTACT */
-
-        .contact-box {
-            text-align: center;
-            max-width: 850px;
-            margin: auto;
-            padding: 60px 30px;
-            border: 1px solid var(--border);
-            border-radius: 25px;
-            background:
-                radial-gradient(circle at center, rgba(0,229,255,0.08), transparent 50%),
-                var(--card);
-        }
-
-        .contact-box h2 {
-            margin-bottom: 15px;
-        }
-
-        .contact-box p {
-            color: var(--muted);
-            margin-bottom: 30px;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        /* FOOTER */
-
-        footer {
-            padding: 30px 0;
-            border-top: 1px solid var(--border);
-            color: var(--muted);
-            text-align: center;
-            font-size: 0.8rem;
-        }
-
-        /* SCROLL ANIMATION */
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: 0.7s ease;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* RESPONSIVE */
-
-        @media (max-width: 850px) {
-
-            .nav-links {
-                position: absolute;
-                top: 72px;
-                left: 0;
-                width: 100%;
-                display: none;
-                flex-direction: column;
-                padding: 25px;
-                background: rgba(6,7,10,0.97);
-                border-bottom: 1px solid var(--border);
-            }
-
-            .nav-links.show {
-                display: flex;
-            }
-
-            .menu-btn {
-                display: block;
-            }
-
-            .hero-grid,
-            .about-grid,
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hero {
-                padding-top: 120px;
-            }
-
-            .hero-card {
-                height: 300px;
-            }
-
-            .skills-grid {
-                grid-template-columns: repeat(2,1fr);
-            }
-        }
-
-        @media (max-width: 520px) {
-
-            h1 {
-                letter-spacing: -2px;
-            }
-
-            section {
-                padding: 80px 0;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .stats {
-                grid-template-columns: 1fr;
-            }
-
-            .buttons {
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bhuvi | Shinobi Portfolio</title>
+
+<!-- Google Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #050505;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+/* ================= VIDEO BACKGROUND ================= */
+
+.video-bg {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -3;
+}
+
+.video-overlay {
+    position: fixed;
+    inset: 0;
+    background:
+        linear-gradient(90deg, rgba(0,0,0,.92), rgba(0,0,0,.55), rgba(0,0,0,.85)),
+        linear-gradient(0deg, rgba(0,0,0,.85), transparent);
+    z-index: -2;
+}
+
+.scanlines {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 20;
+    opacity: .08;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 3px,
+        #fff 4px
+    );
+}
+
+/* ================= NAVBAR ================= */
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(8px);
+    background: rgba(0,0,0,.25);
+    border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.logo {
+    font-family: 'Orbitron';
+    font-size: 25px;
+    font-weight: 800;
+    color: #ff6b00;
+    text-shadow: 0 0 15px #ff4500;
+}
+
+.logo span {
+    color: white;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: #ff6b00;
+    text-shadow: 0 0 12px #ff4500;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+    min-height: 100vh;
+    padding: 150px 8% 80px;
+    display: flex;
+    align-items: center;
+}
+
+.hero-content {
+    max-width: 750px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 8px 18px;
+    border: 1px solid #ff6b00;
+    border-radius: 30px;
+    color: #ff8c42;
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+    box-shadow: 0 0 20px rgba(255,80,0,.25);
+}
+
+.hero h1 {
+    font-family: 'Orbitron';
+    font-size: clamp(45px, 8vw, 90px);
+    line-height: 1;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: #ff6b00;
+    text-shadow:
+        0 0 10px #ff4500,
+        0 0 30px #ff4500;
+}
+
+.hero h2 {
+    font-size: clamp(20px, 3vw, 32px);
+    color: #ddd;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    max-width: 650px;
+    color: #bbb;
+    line-height: 1.8;
+}
+
+.buttons {
+    margin-top: 35px;
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 13px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    border: 1px solid #ff6b00;
+    transition: .3s;
+    font-weight: 600;
+}
+
+.btn.primary {
+    background: #ff5a00;
+    box-shadow: 0 0 25px rgba(255,80,0,.45);
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 30px rgba(255,90,0,.7);
+}
+
+/* ================= CHAKRA ORB ================= */
+
+.chakra {
+    position: absolute;
+    right: 10%;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,100,0,.6);
+    box-shadow:
+        0 0 30px #ff4500,
+        inset 0 0 50px rgba(255,80,0,.5);
+    animation: chakraSpin 8s linear infinite;
+}
+
+.chakra::before,
+.chakra::after {
+    content: "";
+    position: absolute;
+    inset: 20px;
+    border: 2px dashed rgba(255,140,50,.5);
+    border-radius: 50%;
+}
+
+.chakra::after {
+    inset: 55px;
+    border-style: solid;
+}
+
+@keyframes chakraSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* ================= SECTIONS ================= */
+
+section {
+    padding: 100px 8%;
+    position: relative;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title small {
+    color: #ff6b00;
+    letter-spacing: 4px;
+}
+
+.section-title h2 {
+    font-family: 'Orbitron';
+    font-size: 38px;
+    margin-top: 10px;
+}
+
+/* ================= ABOUT ================= */
+
+.about-container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 40px;
+    background: rgba(10,10,10,.7);
+    border: 1px solid rgba(255,100,0,.25);
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+}
+
+.about-container p {
+    color: #bbb;
+    line-height: 1.9;
+}
+
+/* ================= SKILLS ================= */
+
+.skills-grid {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    gap: 20px;
+}
+
+.skill {
+    padding: 30px;
+    background: rgba(15,15,15,.75);
+    border: 1px solid rgba(255,100,0,.25);
+    border-radius: 12px;
+    transition: .4s;
+}
+
+.skill:hover {
+    transform: translateY(-8px);
+    border-color: #ff6b00;
+    box-shadow: 0 0 25px rgba(255,80,0,.25);
+}
+
+.skill h3 {
+    color: #ff7b22;
+    margin-bottom: 10px;
+}
+
+/* ================= PROJECTS ================= */
+
+.projects {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 25px;
+}
+
+.project {
+    min-height: 230px;
+    padding: 30px;
+    border-radius: 15px;
+    background: linear-gradient(
+        145deg,
+        rgba(255,70,0,.15),
+        rgba(10,10,10,.85)
+    );
+    border: 1px solid rgba(255,100,0,.25);
+    transition: .4s;
+}
+
+.project:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 30px rgba(255,70,0,.3);
+}
+
+.project h3 {
+    color: #ff7b22;
+    margin-bottom: 15px;
+}
+
+.project p {
+    color: #aaa;
+    line-height: 1.7;
+}
+
+/* ================= MISSION ================= */
+
+.mission {
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+}
+
+.mission p {
+    color: #aaa;
+    line-height: 2;
+    font-size: 18px;
+}
+
+.mission strong {
+    color: #ff6b00;
+}
+
+/* ================= CONTACT ================= */
+
+.contact-box {
+    max-width: 700px;
+    margin: auto;
+    text-align: center;
+    padding: 50px;
+    background: rgba(10,10,10,.75);
+    border: 1px solid rgba(255,100,0,.3);
+    border-radius: 15px;
+}
+
+.contact-box p {
+    color: #aaa;
+    margin-bottom: 25px;
+}
+
+.socials {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.socials a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 18px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    transition: .3s;
+}
+
+.socials a:hover {
+    border-color: #ff6b00;
+    color: #ff6b00;
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #777;
+    border-top: 1px solid rgba(255,255,255,.08);
+}
+
+/* ================= PARTICLES ================= */
+
+.particle {
+    position: fixed;
+    width: 4px;
+    height: 4px;
+    background: #ff6b00;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: .6;
+    box-shadow: 0 0 10px #ff4500;
+    animation: floatParticle linear infinite;
+}
+
+@keyframes floatParticle {
+    from {
+        transform: translateY(110vh);
+    }
+    to {
+        transform: translateY(-10vh);
+    }
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width: 800px) {
+
+    header {
+        padding: 15px 5%;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .chakra {
+        opacity: .2;
+        right: -100px;
+    }
+
+    .hero {
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+
+    section {
+        padding: 80px 6%;
+    }
+}
+</style>
 </head>
 
 <body>
 
+<!-- VIDEO BACKGROUND -->
+<video class="video-bg" autoplay muted loop playsinline>
+    <!-- Replace this with your own Naruto/anime background video -->
+    <source src="naruto-background.mp4" type="video/mp4">
+</video>
+
+<div class="video-overlay"></div>
+<div class="scanlines"></div>
+
 <!-- NAVIGATION -->
+<header>
+    <div class="logo">BHUVI<span>忍</span></div>
 
-<nav>
-    <div class="container nav-inner">
-
-        <a href="#home" class="logo">
-            B<span>N</span>.
-        </a>
-
-        <button class="menu-btn" onclick="toggleMenu()">
-            ☰
-        </button>
-
-        <ul class="nav-links" id="navLinks">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#internship">Internship</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-
-    </div>
-</nav>
-
+    <nav>
+        <a href="#home">HOME</a>
+        <a href="#about">ABOUT</a>
+        <a href="#skills">SKILLS</a>
+        <a href="#projects">MISSIONS</a>
+        <a href="#contact">CONTACT</a>
+    </nav>
+</header>
 
 <!-- HERO -->
-
 <section class="hero" id="home">
 
-    <div class="container hero-grid">
+    <div class="hero-content">
 
-        <div class="reveal">
-
-            <div class="badge">
-                <span class="dot"></span>
-                Open to Engineering Opportunities
-            </div>
-
-            <h1>
-                Bhuvanesh<br>
-                <span>N.</span>
-            </h1>
-
-            <p>
-                Final-Year Manufacturing Engineering student at
-                Anna University – CEG Campus, passionate about
-                manufacturing, engineering systems, problem solving,
-                and technology.
-            </p>
-
-            <div class="buttons">
-
-                <a href="#projects" class="btn btn-primary">
-                    Explore My Work →
-                </a>
-
-                <a href="#contact" class="btn btn-outline">
-                    Contact Me
-                </a>
-
-            </div>
-
+        <div class="badge">
+            SHINOBI PORTFOLIO • ONLINE
         </div>
 
+        <h1>
+            Bhuvi<br>
+            <span>忍 SHINOBI</span>
+        </h1>
 
-        <div class="hero-card reveal">
+        <h2>
+            Manufacturing Engineer • Tech Explorer
+        </h2>
 
-    <img src="profile image.jpeg"
-         alt="Bhuvanesh N."
-         class="profile-image">
+        <p>
+            Welcome to my shinobi portfolio. I combine engineering,
+            technology and creativity to transform ideas into powerful
+            real-world projects.
+        </p>
 
-</div>
+        <div class="buttons">
+            <a href="#projects" class="btn primary">
+                VIEW MISSIONS
+            </a>
 
+            <a href="#contact" class="btn">
+                CONTACT ME
+            </a>
         </div>
 
     </div>
 
-</section>
+    <div class="chakra"></div>
 
+</section>
 
 <!-- ABOUT -->
-
 <section id="about">
 
-    <div class="container">
+    <div class="section-title">
+        <small>01 • SHINOBI PROFILE</small>
+        <h2>ABOUT ME</h2>
+    </div>
 
-        <div class="section-heading reveal">
-            <div class="section-label">01 — About</div>
-            <h2>Engineering with purpose.</h2>
-            <p class="section-description">
-                A manufacturing engineering student building practical
-                knowledge through academics, projects and industrial exposure.
-            </p>
-        </div>
+    <div class="about-container">
 
+        <p>
+            I am a passionate engineering student interested in
+            manufacturing, technology, design and problem solving.
+            My goal is to continuously develop my technical skills,
+            take on challenging missions and create innovative solutions.
+        </p>
 
-        <div class="about-grid">
+        <br>
 
-            <div class="about-card reveal">
-
-                <h3>Who I Am</h3>
-
-                <p>
-                    I am Bhuvanesh N., a final-year Manufacturing Engineering
-                    student at Anna University, CEG Campus. I am interested
-                    in manufacturing processes, production systems, quality,
-                    engineering technology and data-driven problem solving.
-                </p>
-
-                <br>
-
-                <p>
-                    I enjoy understanding how engineering concepts are
-                    transformed into practical industrial solutions and
-                    continuously developing my technical and professional skills.
-                </p>
-
-            </div>
-
-
-            <div class="about-card reveal">
-
-                <h3>My Focus</h3>
-
-                <div class="stats">
-
-                    <div class="stat">
-                        <strong>01</strong>
-                        <span>Manufacturing</span>
-                    </div>
-
-                    <div class="stat">
-                        <strong>02</strong>
-                        <span>Production</span>
-                    </div>
-
-                    <div class="stat">
-                        <strong>03</strong>
-                        <span>Quality</span>
-                    </div>
-
-                    <div class="stat">
-                        <strong>04</strong>
-                        <span>Technology</span>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
+        <p>
+            Like a shinobi constantly improving their skills,
+            I believe that learning, discipline and consistency
+            are the keys to becoming better every day.
+        </p>
 
     </div>
 
 </section>
-
 
 <!-- SKILLS -->
-
 <section id="skills">
 
-    <div class="container">
+    <div class="section-title">
+        <small>02 • NINJA TECHNIQUES</small>
+        <h2>SKILLS</h2>
+    </div>
 
-        <div class="section-heading reveal">
+    <div class="skills-grid">
 
-            <div class="section-label">02 — Skills</div>
-
-            <h2>Technical toolkit.</h2>
-
-            <p class="section-description">
-                A combination of engineering fundamentals, manufacturing
-                knowledge and digital skills.
-            </p>
-
+        <div class="skill">
+            <h3>⚙ Manufacturing</h3>
+            <p>Production, CNC, welding and manufacturing processes.</p>
         </div>
 
+        <div class="skill">
+            <h3>💻 Web Development</h3>
+            <p>HTML, CSS, JavaScript and responsive website design.</p>
+        </div>
 
-        <div class="skills-grid">
+        <div class="skill">
+            <h3>📊 MS Excel</h3>
+            <p>Data analysis, calculations and engineering documentation.</p>
+        </div>
 
-            <div class="skill reveal">
-                <div class="skill-icon">⚙️</div>
-                <h3>Manufacturing Engineering</h3>
-                <p>Manufacturing processes, production systems and industrial engineering fundamentals.</p>
-            </div>
+        <div class="skill">
+            <h3>🎨 Design</h3>
+            <p>Creative UI design, presentations and visual content.</p>
+        </div>
 
-            <div class="skill reveal">
-                <div class="skill-icon">🏭</div>
-                <h3>Production</h3>
-                <p>Production planning, process improvement and shop-floor operations.</p>
-            </div>
+        <div class="skill">
+            <h3>🤖 Technology</h3>
+            <p>Interest in emerging technologies and automation.</p>
+        </div>
 
-            <div class="skill reveal">
-                <div class="skill-icon">📐</div>
-                <h3>CAD & Design</h3>
-                <p>Engineering design, modelling and interpretation of technical drawings.</p>
-            </div>
-
-            <div class="skill reveal">
-                <div class="skill-icon">🔬</div>
-                <h3>Advanced Manufacturing</h3>
-                <p>CNC, EDM, additive manufacturing and advanced machining concepts.</p>
-            </div>
-
-            <div class="skill reveal">
-                <div class="skill-icon">✅</div>
-                <h3>Quality Engineering</h3>
-                <p>Quality control, inspection, process improvement and Six Sigma concepts.</p>
-            </div>
-
-            <div class="skill reveal">
-                <div class="skill-icon">📊</div>
-                <h3>Data & Excel</h3>
-                <p>Excel-based analysis, calculations, data organization and reporting.</p>
-            </div>
-
+        <div class="skill">
+            <h3>🧠 Problem Solving</h3>
+            <p>Analytical thinking and practical engineering solutions.</p>
         </div>
 
     </div>
 
 </section>
-
 
 <!-- PROJECTS -->
-
 <section id="projects">
 
-    <div class="container">
+    <div class="section-title">
+        <small>03 • COMPLETED MISSIONS</small>
+        <h2>PROJECTS</h2>
+    </div>
 
-        <div class="section-heading reveal">
+    <div class="projects">
 
-            <div class="section-label">03 — Projects</div>
-
-            <h2>Things I've built.</h2>
-
-            <p class="section-description">
-                Selected academic and engineering projects demonstrating
-                practical problem-solving and technical knowledge.
+        <div class="project">
+            <h3>🔥 Mission 01 — Engineering Project</h3>
+            <p>
+                Add your engineering project description,
+                technologies used and your contribution here.
             </p>
-
         </div>
 
+        <div class="project">
+            <h3>⚡ Mission 02 — Web Portfolio</h3>
+            <p>
+                A futuristic anime-inspired portfolio created
+                using HTML, CSS and JavaScript.
+            </p>
+        </div>
 
-        <div class="projects-grid">
-
-
-            <div class="project reveal">
-
-                <span class="project-number">PROJECT 01</span>
-
-                <h3>Nylon Thread Grass Cutting Machine</h3>
-
-                <p>
-                    Designed and developed a practical grass-cutting machine
-                    using nylon thread, focusing on mechanical design,
-                    assembly and usability.
-                </p>
-
-                <div class="tags">
-                    <span class="tag">Mechanical Design</span>
-                    <span class="tag">Manufacturing</span>
-                    <span class="tag">Team Leadership</span>
-                </div>
-
-            </div>
-
-
-            <div class="project reveal">
-
-                <span class="project-number">PROJECT 02</span>
-
-                <h3>Advanced Manufacturing Study</h3>
-
-                <p>
-                    Academic work covering modern manufacturing technologies
-                    including CNC, EDM, additive manufacturing and advanced
-                    machining processes.
-                </p>
-
-                <div class="tags">
-                    <span class="tag">CNC</span>
-                    <span class="tag">EDM</span>
-                    <span class="tag">AM</span>
-                </div>
-
-            </div>
-
-
-            <div class="project reveal">
-
-                <span class="project-number">PROJECT 03</span>
-
-                <h3>Production Planning & Control</h3>
-
-                <p>
-                    Studied production planning methodologies, scheduling,
-                    inventory considerations and the role of digital systems
-                    in modern manufacturing.
-                </p>
-
-                <div class="tags">
-                    <span class="tag">PPC</span>
-                    <span class="tag">Production</span>
-                    <span class="tag">Excel</span>
-                </div>
-
-            </div>
-
-
-            <div class="project reveal">
-
-                <span class="project-number">PROJECT 04</span>
-
-                <h3>Engineering Data Analysis</h3>
-
-                <p>
-                    Applied spreadsheet-based analysis for engineering
-                    calculations, process data organization and performance
-                    evaluation.
-                </p>
-
-                <div class="tags">
-                    <span class="tag">Excel</span>
-                    <span class="tag">Data Analysis</span>
-                    <span class="tag">Engineering</span>
-                </div>
-
-            </div>
-
+        <div class="project">
+            <h3>🌀 Mission 03 — Innovation</h3>
+            <p>
+                Add another academic, internship or personal
+                project to showcase your skills.
+            </p>
         </div>
 
     </div>
 
 </section>
 
+<!-- MISSION -->
+<section>
 
-<!-- INTERNSHIP -->
+    <div class="section-title">
+        <small>04 • MY WAY OF THE NINJA</small>
+        <h2>MISSION</h2>
+    </div>
 
-<section id="internship">
+    <div class="mission">
 
-    <div class="container">
+        <p>
+            "My goal is to keep learning, build meaningful projects,
+            solve real-world problems and become a better engineer
+            with every mission."
+        </p>
 
-        <div class="section-heading reveal">
+        <br>
 
-            <div class="section-label">04 — Internship</div>
-
-            <h2>Industrial exposure.</h2>
-
-            <p class="section-description">
-                Learning engineering practices in a real industrial environment.
-            </p>
-
-        </div>
-
-
-        <div class="timeline">
-
-            <div class="timeline-item reveal">
-
-                <div class="timeline-dot"></div>
-
-                <div class="timeline-card">
-
-                    <h3>Industrial Internship</h3>
-
-                    <div class="company">
-                        Hyundai Steel Pipe India Pvt. Ltd.
-                    </div>
-
-                    <p>
-                        Gained exposure to industrial manufacturing operations
-                        and understood how engineering principles are applied
-                        in a production environment.
-                    </p>
-
-                    <ul>
-                        <li>Observed manufacturing and production activities.</li>
-                        <li>Learned about quality assurance practices.</li>
-                        <li>Understood workplace safety procedures.</li>
-                        <li>Observed logistics and material movement.</li>
-                        <li>Gained practical industrial exposure.</li>
-                    </ul>
-
-                </div>
-
-            </div>
-
-        </div>
+        <p>
+            <strong>Never stop learning. Never stop improving.</strong>
+        </p>
 
     </div>
 
 </section>
-
 
 <!-- CONTACT -->
-
 <section id="contact">
 
-    <div class="container">
+    <div class="section-title">
+        <small>05 • SEND A MESSAGE</small>
+        <h2>CONTACT</h2>
+    </div>
 
-        <div class="contact-box reveal">
+    <div class="contact-box">
 
-            <div class="section-label">05 — Contact</div>
+        <p>
+            Want to connect or discuss a project?
+        </p>
 
-            <h2>Let's build something useful.</h2>
+        <div class="socials">
 
-            <p>
-                I am interested in engineering opportunities where I can
-                apply my manufacturing knowledge, learn from experienced
-                professionals and contribute to real-world projects.
-            </p>
+            <a href="https://www.linkedin.com/" target="_blank">
+                LinkedIn
+            </a>
 
-            <div class="contact-links">
+            <a href="https://github.com/" target="_blank">
+                GitHub
+            </a>
 
-                <!-- Replace these links with your actual details -->
-
-                <a href="mailto:your.email@gmail.com"
-                   class="btn btn-primary">
-                    ✉ Email Me
-                </a>
-
-                <a href="https://www.linkedin.com/"
-                   target="_blank"
-                   class="btn btn-outline">
-                    LinkedIn
-                </a>
-
-                <a href="https://github.com/"
-                   target="_blank"
-                   class="btn btn-outline">
-                    GitHub
-                </a>
-
-            </div>
+            <a href="mailto:yourmail@gmail.com">
+                Email
+            </a>
 
         </div>
 
@@ -1073,79 +675,90 @@
 
 </section>
 
-
-<!-- FOOTER -->
-
 <footer>
-
-    <div class="container">
-
-        © 2026 Bhuvanesh N. · Manufacturing Engineering
-
-    </div>
-
+    © 2026 Bhuvi • Shinobi Portfolio
 </footer>
-
 
 <script>
 
-    /* MOBILE MENU */
+/* ================= PARTICLES ================= */
 
-    function toggleMenu() {
+for(let i = 0; i < 35; i++){
 
-        document
-            .getElementById("navLinks")
-            .classList.toggle("show");
+    const particle = document.createElement("div");
 
+    particle.className = "particle";
+
+    particle.style.left =
+        Math.random() * 100 + "%";
+
+    particle.style.animationDuration =
+        (5 + Math.random() * 10) + "s";
+
+    particle.style.animationDelay =
+        Math.random() * 8 + "s";
+
+    particle.style.opacity =
+        Math.random();
+
+    document.body.appendChild(particle);
+}
+
+/* ================= MOUSE CHAKRA EFFECT ================= */
+
+document.addEventListener("mousemove", function(e){
+
+    const chakra = document.querySelector(".chakra");
+
+    if(window.innerWidth > 800){
+
+        const x =
+            (e.clientX / window.innerWidth - .5) * 25;
+
+        const y =
+            (e.clientY / window.innerHeight - .5) * 25;
+
+        chakra.style.marginLeft = x + "px";
+        chakra.style.marginTop = y + "px";
     }
 
+});
 
-    /* CLOSE MENU AFTER CLICK */
+/* ================= SCROLL REVEAL ================= */
 
-    document.querySelectorAll(".nav-links a").forEach(link => {
+const sections =
+document.querySelectorAll("section");
 
-        link.addEventListener("click", () => {
+const observer =
+new IntersectionObserver((entries) => {
 
-            document
-                .getElementById("navLinks")
-                .classList.remove("show");
+    entries.forEach(entry => {
 
-        });
+        if(entry.isIntersecting){
+
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+
+        }
 
     });
 
+},{
+    threshold: .12
+});
 
-    /* SCROLL REVEAL */
+sections.forEach(section => {
 
-    const observer = new IntersectionObserver(
+    section.style.opacity = "0";
+    section.style.transform = "translateY(40px)";
+    section.style.transition = "1s ease";
 
-        entries => {
+    observer.observe(section);
 
-            entries.forEach(entry => {
-
-                if (entry.isIntersecting) {
-
-                    entry.target.classList.add("active");
-
-                }
-
-            });
-
-        },
-
-        {
-            threshold: 0.12
-        }
-
-    );
-
-
-    document
-        .querySelectorAll(".reveal")
-        .forEach(element => observer.observe(element));
-
+});
 
 </script>
 
 </body>
 </html>
+```
